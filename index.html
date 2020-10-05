@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Weather App</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-dark">
+        <span class="navbar-text"
+            style="text-align: center; font-size: 30px; font-weight: bold; justify-content: center; color: white;">
+            Weather App
+        </span>
+    </nav>
+    <br>
+    <section class="card col-md-2 bg-light" style="float: left; margin-right: 10px;">
+        <br>
+        <p>Search For a City:</p>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" id="cityinput" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" id="citysearch" type="button">Search</button>
+        </form>
+        <br>
+        <ul class="list-group" id="searchHistory" style="height:700px;">
+        </ul>
+        <br>
+    </section>
+    <section>
+        <div class="card col-md-9" style="float: left; margin-bottom: 15px;">
+            <div class="card-body">
+                <p id="cityname"></p>
+                <img id="feelslike">
+                <p id=temperature>Temperature: </p>
+                <p id=humidity>Humidity: </p>
+                <p id=windspeed>Wind Speed: </p>
+                <p id=uvindex>UV index:
+                    <span></span>
+                </p>
+            </div>
+        </div>
+        <div class="container">
+            <p>5 Day Forecast</p>
+            <div class="card col-md-2 bg-primary" style="float: left; margin-right: 10px;">
+                <div class="card-body" id="day1">
+                    <p id="date1"></p>
+                    <img id="img1">
+                    <p id="temp1"></p>
+                    <p id="hum1"></p>
+                </div>
+            </div>
+            <div class="card col-md-2 bg-primary" style="float: left; margin-right: 10px;">
+                <div class="card-body" id="day2">
+                    <p id="date2"></p>
+                    <img id="img2">
+                    <p id="temp2"></p>
+                    <p id="hum2"></p>
+                </div>
+            </div>
+            <div class="card col-md-2 bg-primary" style="float: left; margin-right: 10px;">
+                <div class="card-body" id="day3">
+                    <p id="date3"></p>
+                    <img id="img3">
+                    <p id="temp3"></p>
+                    <p id="hum3"></p>
+                </div>
+            </div>
+            <div class="card col-md-2 bg-primary" style="float: left; margin-right: 10px;">
+                <div class="card-body" id="day4">
+                    <p id="date4"></p>
+                    <img id="img4">
+                    <p id="temp4"></p>
+                    <p id="hum4"></p>
+                </div>
+            </div>
+            <div class="card col-md-2 bg-primary" style="float: left; margin-right: 10px;">
+                <div class="card-body" id="day5">
+                    <p id="date5"></p>
+                    <img id="img5">
+                    <p id="temp5"></p>
+                    <p id="hum5"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>
+    <script>
+        const currentDay = moment().format("MM/DD/YY");
+    </script>
+</body>
+
+</html>
