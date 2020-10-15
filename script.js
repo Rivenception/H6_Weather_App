@@ -66,7 +66,7 @@ $("#citysearch").on("click", function () {
             .then(function (response) {
 
                 const currentCity = response.name;
-                const currentTemp = response.main.temp;
+                var currentTemp = response.main.temp;
                 const currentHum = response.main.humidity;
                 const currentWind = response.wind.speed;
                 var cityLon = response.coord.lon;
@@ -79,6 +79,13 @@ $("#citysearch").on("click", function () {
                     wind: response.wind.speed,
                     icon: "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png"
                 };
+
+                // temp conversions
+                tempK = parseFloat(response.main.temp);
+                tempF = Math.round(((tempK-273.15)*1.8)+32);
+                currentTemp = tempF;
+                Search.temp = tempF;
+
 
                 $("#cityname").text(currentCity + " (" + currentDay + ")").attr("style", "bolder");
                 $("#feelslike").attr("src", Search.icon);
@@ -131,7 +138,7 @@ $("#citysearch").on("click", function () {
                             const day = "day" + (x + 1);
 
                             forecast[day].feelslike = "http://openweathermap.org/img/w/" + response.daily[x].weather[0].icon + ".png";
-                            forecast[day].temp = response.daily[x].temp.day;
+                            forecast[day].temp = Math.round(((parseFloat(response.daily[x].temp.day)-273.15)*1.8)+32);
                             forecast[day].hum = response.daily[x].humidity;
 
                             dailyDay = $("#date" + (x + 1)).text(forecast[day].day).attr("style", "color:white");
